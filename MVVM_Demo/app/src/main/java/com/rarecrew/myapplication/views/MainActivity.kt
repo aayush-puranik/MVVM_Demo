@@ -1,4 +1,4 @@
-package com.rarecrew.myapplication.Views
+package com.rarecrew.myapplication.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

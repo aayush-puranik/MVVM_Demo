@@ -1,4 +1,4 @@
-package com.rarecrew.myapplication.ViewModels
+package com.rarecrew.myapplication.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,14 +8,16 @@ import com.rarecrew.myapplication.Repository.RecipeListRepository
 
 class RecipeListViewModel : ViewModel() {
 
-    private var recipeList: MutableLiveData<List<RecipeModel>>? = null
+    val recipeList: MutableLiveData<List<RecipeModel>> by lazy {
+        MutableLiveData<List<RecipeModel>>()
+    }
 
-    private var mRepo : RecipeListRepository? = null
+    private var mRepo: RecipeListRepository? = null
 
     fun setData() {
-        if(recipeList == null) {
-            mRepo = RecipeListRepository.getInstance()
-            recipeList = mRepo?.getRecipe()
+        mRepo = RecipeListRepository.getInstance()
+        mRepo?.getRecipe {
+            recipeList.value = it.value
         }
     }
 
