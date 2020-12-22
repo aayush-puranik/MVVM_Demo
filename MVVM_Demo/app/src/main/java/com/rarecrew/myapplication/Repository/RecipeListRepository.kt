@@ -1,7 +1,7 @@
 package com.rarecrew.myapplication.Repository
 
 import androidx.lifecycle.MutableLiveData
-import com.rarecrew.myapplication.Models.RecipeModel
+import com.rarecrew.myapplication.models.RecipeModel
 
 class RecipeListRepository {
 
